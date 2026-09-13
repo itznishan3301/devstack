@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HeroBanner from './components/HeroBanner';
 import TechCard from './components/TechCard';
+import StackSidebar from './components/StackSidebar';
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
@@ -55,8 +56,13 @@ function App() {
                 ))}
               </div>
               
-              {/* Stack Sidebar will go here */}
-              <div className="hidden lg:block w-80"></div>
+              <div className="w-full lg:w-80 shrink-0">
+                <StackSidebar 
+                  stack={[]} 
+                  onRemove={() => {}} 
+                  onRemoveAll={() => {}} 
+                />
+              </div>
             </div>
           )}
         </div>
