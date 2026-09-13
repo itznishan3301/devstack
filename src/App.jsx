@@ -4,6 +4,8 @@ import Footer from './components/Footer';
 import HeroBanner from './components/HeroBanner';
 import TechCard from './components/TechCard';
 import StackSidebar from './components/StackSidebar';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [technologies, setTechnologies] = useState([]);
@@ -28,20 +30,30 @@ function App() {
   const [stack, setStack] = useState([]);
 
   const handleAddTech = (tech) => {
-    if (stack.find(item => item.id === tech.id)) return;
+    if (stack.find(item => item.id === tech.id)) {
+      toast.warning(`${tech.name} is already in your stack!`);
+      return;
+    }
     setStack([...stack, tech]);
+    toast.success(`Successfully added ${tech.name} to stack!`);
   };
 
   const handleRemoveTech = (id) => {
+    const removedItem = stack.find(item => item.id === id);
     setStack(stack.filter(item => item.id !== id));
+    if (removedItem) {
+      toast.info(`Removed ${removedItem.name} from stack.`);
+    }
   };
 
   const handleRemoveAll = () => {
     setStack([]);
+    toast.error("Your stack has been cleared.");
   };
 
   return (
     <div className="min-h-screen flex flex-col font-sans text-base-content bg-base-100">
+      <ToastContainer position="top-right" autoClose={3000} />
       <Navbar />
       <main className="flex-grow pb-20">
         <HeroBanner />
