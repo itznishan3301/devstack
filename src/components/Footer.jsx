@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           <div className="md:col-span-1">
-            <p className="text-2xl font-bold"><span className="text-brand-gradient">Dev</span> Stack</p>
+            <img src="/logo-text.png" alt="Dev Stack" className="h-10 mb-2 object-contain" />
             <p className="mt-4 text-sm opacity-80">Empowering developers to build modern web applications with the best technology stack.</p>
             <div className="flex gap-4 mt-6">
               <a href="#" className="opacity-70 hover:opacity-100 transition-opacity">GitHub</a>

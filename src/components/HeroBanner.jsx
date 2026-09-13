@@ -6,7 +6,7 @@ const HeroBanner = () => {
       <div className="hero-content flex-col lg:flex-row-reverse w-full justify-between gap-10">
         <div className="flex-1 flex justify-center">
           <img 
-            src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop" 
+            src="/banner-stack.png" 
             alt="Dev Stack Banner" 
             className="w-full max-w-lg rounded-2xl shadow-2xl" 
           />
