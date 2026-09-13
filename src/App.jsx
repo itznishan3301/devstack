@@ -25,9 +25,11 @@ function App() {
     }, 500);
   }, []);
 
+  const [stack, setStack] = useState([]);
+
   const handleAddTech = (tech) => {
-    // Logic for adding to stack will go here
-    console.log("Add", tech);
+    if (stack.find(item => item.id === tech.id)) return;
+    setStack([...stack, tech]);
   };
 
   return (
@@ -51,14 +53,14 @@ function App() {
                     key={tech.id} 
                     tech={tech} 
                     onAdd={handleAddTech}
-                    isAdded={false} // Will be updated in Stack Logic commit
+                    isAdded={stack.some(t => t.id === tech.id)}
                   />
                 ))}
               </div>
               
               <div className="w-full lg:w-80 shrink-0">
                 <StackSidebar 
-                  stack={[]} 
+                  stack={stack} 
                   onRemove={() => {}} 
                   onRemoveAll={() => {}} 
                 />
