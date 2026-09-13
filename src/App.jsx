@@ -32,6 +32,14 @@ function App() {
     setStack([...stack, tech]);
   };
 
+  const handleRemoveTech = (id) => {
+    setStack(stack.filter(item => item.id !== id));
+  };
+
+  const handleRemoveAll = () => {
+    setStack([]);
+  };
+
   return (
     <div className="min-h-screen flex flex-col font-sans text-base-content bg-base-100">
       <Navbar />
@@ -61,8 +69,8 @@ function App() {
               <div className="w-full lg:w-80 shrink-0">
                 <StackSidebar 
                   stack={stack} 
-                  onRemove={() => {}} 
-                  onRemoveAll={() => {}} 
+                  onRemove={handleRemoveTech} 
+                  onRemoveAll={handleRemoveAll} 
                 />
               </div>
             </div>
